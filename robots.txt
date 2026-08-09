@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /*?
+
+User-agent: Yandex
+Allow: /
+Disallow: /*?
+Crawl-delay: 0.5
 
 Sitemap: https://upgrader-play.ru/sitemap.xml

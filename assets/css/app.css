@@ -263,6 +263,89 @@ h2 {
   background: var(--block);
 }
 
+/* ── Вопросы и внутренние ссылки ───────────────────────────── */
+
+.block {
+  padding: clamp(38px, 6vw, 68px) 0;
+  border-top: 1px solid #1e1e21;
+}
+
+.block h2 {
+  font-size: clamp(22px, 3.4vw, 32px);
+  margin-bottom: clamp(18px, 2.6vw, 28px);
+}
+
+.qa {
+  border-bottom: 1px solid #1e1e21;
+}
+
+.qa summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 17px 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(14px, 2vw, 17px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.qa summary::-webkit-details-marker {
+  display: none;
+}
+
+.qa summary::after {
+  content: '+';
+  color: var(--yellow);
+  font-size: 21px;
+  flex: none;
+}
+
+.qa[open] summary::after {
+  content: '−';
+}
+
+.qa p {
+  color: var(--gray);
+  padding-bottom: 18px;
+  max-width: 74ch;
+  font-size: 14.5px;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 10px;
+}
+
+.links a {
+  display: block;
+  background: var(--block);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 18px 20px;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.links a:hover {
+  border-color: #4a4a50;
+  transform: translateY(-2px);
+}
+
+.links b {
+  font-family: var(--display);
+  font-size: 15px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.links span {
+  color: var(--gray);
+  font-size: 13.5px;
+}
+
 /* ── Финал ─────────────────────────────────────────────────── */
 
 .finale {
@@ -294,6 +377,155 @@ h2 {
   color: var(--gray-dim);
   font-size: 13px;
   margin-top: 16px;
+}
+
+/* ── Текстовые страницы ────────────────────────────────────── */
+
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px) var(--gut) clamp(40px, 6vw, 72px);
+}
+
+.crumbs {
+  font-size: 13px;
+  color: var(--gray-dim);
+  margin-bottom: 20px;
+}
+
+.crumbs a {
+  color: var(--gray);
+}
+
+.crumbs a:hover {
+  color: #fff;
+}
+
+.doc h1 {
+  font-size: clamp(26px, 4.6vw, 40px);
+  margin-bottom: 16px;
+}
+
+.doc h2 {
+  font-size: clamp(20px, 3vw, 27px);
+  margin: 38px 0 14px;
+}
+
+.doc h3 {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 700;
+  margin: 26px 0 10px;
+}
+
+.doc p {
+  margin-bottom: 15px;
+  color: #d4d4d6;
+}
+
+.doc .lead {
+  font-size: clamp(16px, 2.2vw, 18px);
+  color: var(--gray);
+  margin-bottom: 26px;
+}
+
+.doc ul,
+.doc ol {
+  margin: 0 0 18px;
+  padding-left: 22px;
+  color: #d4d4d6;
+}
+
+.doc li {
+  margin-bottom: 8px;
+}
+
+.doc a:not(.btn) {
+  color: var(--yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.doc strong {
+  color: #fff;
+}
+
+.note {
+  background: var(--block);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--yellow);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 22px 0;
+}
+
+.note p:last-child {
+  margin-bottom: 0;
+}
+
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14.5px;
+}
+
+.doc th,
+.doc td {
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+  text-align: left;
+}
+
+.doc th {
+  background: var(--block);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.ctabox {
+  background: var(--block);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px 24px 28px;
+  margin: 34px 0;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.ctabox h2 {
+  margin: 0;
+  font-size: clamp(19px, 2.6vw, 24px);
+}
+
+.ctabox p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 14.5px;
+}
+
+.related {
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid #1e1e21;
+}
+
+.related p.foot__t {
+  margin-bottom: 12px;
+}
+
+.related ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related li {
+  margin-bottom: 9px;
 }
 
 /* ── Подвал ────────────────────────────────────────────────── */
