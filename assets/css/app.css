@@ -1,0 +1,374 @@
+@import url('fonts.css');
+
+/* Палитра и шрифты сняты с upgrader.vip — знакомая игроку среда. */
+
+:root {
+  --black: #101012;
+  --header: #17181c;
+  --block: #17181c;
+  --border: #2b2b2e;
+  --gray: #a7a7a7;
+  --gray-dim: #6f7076;
+
+  --yellow: #fbd506;
+  --yellow-ink: #17140a;
+  --gold-grad: linear-gradient(93deg, #fbd506 0%, #ffdd23 50%, #fbd506 100%);
+
+  --display: 'Tektur', 'Segoe UI', sans-serif;
+  --body: 'Exo 2', 'Segoe UI', sans-serif;
+
+  --shell: 1160px;
+  --gut: clamp(16px, 3vw, 32px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: #fff;
+  font: 400 16px/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+p {
+  margin: 0;
+}
+h1,
+h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 0 var(--gut);
+}
+
+/* ── Шапка ─────────────────────────────────────────────────── */
+
+.hdr {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 var(--gut);
+  background: var(--header);
+  border-bottom: 1px solid #0c0c0e;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: 0.04em;
+}
+
+.logo svg {
+  width: 28px;
+  height: 28px;
+}
+
+.hdr__sp {
+  flex: 1;
+}
+
+/* ── Кнопки ────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 8px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 11px 20px;
+  white-space: nowrap;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn--y {
+  background: var(--gold-grad);
+  color: var(--yellow-ink);
+}
+
+.btn--y:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 26px -10px rgba(251, 213, 6, 0.85);
+}
+
+.btn--lg {
+  padding: 16px 30px;
+  font-size: 17px;
+}
+
+.btn--wide {
+  width: 100%;
+}
+
+.btn--play {
+  padding-left: 17px;
+}
+
+/* Плитка Google Play на кнопке: белая подложка, чтобы не сливалась с золотом */
+.btn__gp {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 6px;
+}
+
+.btn--lg .btn__gp {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+}
+
+/* ── Первый экран ──────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  padding: clamp(40px, 8vw, 86px) 0 clamp(30px, 5vw, 56px);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -240px;
+  left: 50%;
+  width: min(900px, 130vw);
+  height: 520px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(251, 213, 6, 0.13), transparent 66%);
+  pointer-events: none;
+}
+
+.hero__in {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(20px, 3vw, 26px);
+  letter-spacing: 0.06em;
+}
+
+.wordmark svg {
+  width: 32px;
+  height: 32px;
+}
+
+.claim {
+  font-size: clamp(30px, 6vw, 56px);
+  max-width: 16ch;
+}
+
+.claim em {
+  font-style: normal;
+  color: var(--yellow);
+}
+
+.claim__sub {
+  color: var(--gray);
+  font-size: clamp(15px, 2vw, 18px);
+  max-width: 54ch;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.facts span {
+  background: var(--block);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.facts b {
+  color: #fff;
+  font-family: var(--display);
+}
+
+/* ── Скриншоты ─────────────────────────────────────────────── */
+
+.shotsec {
+  padding-bottom: clamp(30px, 5vw, 56px);
+}
+
+.shots {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(216px, 1fr);
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #34343a transparent;
+}
+
+.shots img {
+  scroll-snap-align: center;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #0c0c0e;
+  background: var(--block);
+}
+
+/* ── Финал ─────────────────────────────────────────────────── */
+
+.finale {
+  text-align: center;
+  padding: clamp(48px, 8vw, 92px) 0;
+  border-top: 1px solid #0c0c0e;
+  background: radial-gradient(ellipse 70% 100% at 50% 100%, rgba(251, 213, 6, 0.1), transparent 70%);
+}
+
+.install__icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 21px;
+  border: 1px solid var(--border);
+  margin: 0 auto 20px;
+}
+
+.finale h2 {
+  font-size: clamp(26px, 4.4vw, 40px);
+  margin-bottom: 12px;
+}
+
+.finale p {
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.hint {
+  color: var(--gray-dim);
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+/* ── Подвал ────────────────────────────────────────────────── */
+
+.foot {
+  background: var(--header);
+  border-top: 1px solid #0c0c0e;
+  padding: 32px 0 calc(30px + env(safe-area-inset-bottom));
+}
+
+.foot__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #232325;
+}
+
+.foot__links a {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.foot__links a:hover {
+  color: #fff;
+}
+
+.legal {
+  color: var(--gray-dim);
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 90ch;
+  margin-top: 18px;
+}
+
+/* ── Липкая кнопка на телефоне ─────────────────────────────── */
+
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 45;
+  display: none;
+  padding: 9px var(--gut) calc(9px + env(safe-area-inset-bottom));
+  background: rgba(16, 16, 18, 0.94);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #232325;
+}
+
+@media (max-width: 720px) {
+  body[data-scrolled] .dock {
+    display: block;
+  }
+  body {
+    padding-bottom: 70px;
+  }
+  .hdr .btn--y {
+    display: none;
+  }
+}
+
+[data-only='desktop'] {
+  display: none;
+}
+
+body[data-plat='other'] [data-only='desktop'] {
+  display: revert;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
