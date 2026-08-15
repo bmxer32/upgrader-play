@@ -5800,6 +5800,8 @@ google_sign_in
 google_sign_in_platform_interface
 path_provider_windows
 plugin_platform_interface
+url_launcher
+url_launcher_platform_interface
 vector_graphics_codec
 video_player_web
 xdg_directories
@@ -11012,6 +11014,12 @@ path_provider_android
 path_provider_foundation
 path_provider_linux
 path_provider_platform_interface
+url_launcher_android
+url_launcher_ios
+url_launcher_linux
+url_launcher_macos
+url_launcher_web
+url_launcher_windows
 vector_graphics
 vector_graphics_compiler
 video_player
