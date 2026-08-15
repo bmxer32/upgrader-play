@@ -27,14 +27,11 @@
   <title>Upgrader — апгрейд скинов CS2 в браузере</title>
   <link rel="manifest" href="manifest.json">
 
-  <!-- Загрузчик рекламы РСЯ.
-       Кладёт в страницу объект Ya, через который показывается блок
-       Rewarded — тот самый ролик за кейс. Стоит в head, как требует
-       сеть, и грузится асинхронно: реклама не должна задерживать
-       появление игры. Очередь yaContextCb нужна на случай, если
-       что-то попросит показ раньше, чем скрипт доедет. -->
+  <!-- Очередь рекламы РСЯ.
+       Объявлена здесь, до всего: в неё можно складывать показы ещё
+       до того, как приедет сам скрипт сети. Сам скрипт подключается
+       не тут — см. ниже, после первого кадра игры. -->
   <script>window.yaContextCb = window.yaContextCb || []</script>
-  <script src="https://yandex.ru/ads/system/context.js" async></script>
 
   <style>
     /* Экран загрузки.
@@ -129,9 +126,25 @@
     // всё и затевалось.
     window.addEventListener('flutter-first-frame', function () {
       var boot = document.getElementById('boot');
-      if (!boot) return;
-      boot.classList.add('done');
-      setTimeout(function () { boot.remove(); }, 400);
+      if (boot) {
+        boot.classList.add('done');
+        setTimeout(function () { boot.remove(); }, 400);
+      }
+
+      // Реклама подключается здесь, а не в head, и это не косметика.
+      //
+      // В head со своим async она соревновалась за канал с самой игрой,
+      // а та весит мегабайты. Замерено в браузере: скрипт сети ехал
+      // 86 секунд. Игрок за это время успевал нажать кейс и получить
+      // «реклама готовится» — показывать было нечем.
+      //
+      // После первого кадра канал свободен, игра уже на экране,
+      // а до кнопки кейса человек доберётся заведомо позже, чем
+      // доедут эти сто килобайт.
+      var ads = document.createElement('script');
+      ads.src = 'https://yandex.ru/ads/system/context.js';
+      ads.async = true;
+      document.head.appendChild(ads);
     });
   </script>
 
