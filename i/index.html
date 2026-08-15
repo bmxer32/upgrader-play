@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Приглашение в Upgrader</title>
+    <meta
+      name="description"
+      content="Вас пригласили в Upgrader — симулятор апгрейда скинов CS2. Введите код друга и получите бонус на старте."
+    />
+
+    <!--
+      Страница служебная: попадают на неё по личной ссылке, а не из поиска,
+      и каждая такая ссылка отличается от соседней одним параметром.
+      В индексе от них был бы только мусор из тысяч почти одинаковых
+      адресов, поэтому noindex. В robots.txt закрыт и путь целиком —
+      одного запрета мало: robots не мешает попасть в индекс по внешней
+      ссылке, а noindex мешает.
+    -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#17181c" />
+
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/assets/fonts/tektur-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/exo2-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/app.css" />
+
+    <style>
+      /* Код — единственное, ради чего сюда пришли, и на экране он
+         должен быть крупнее всего остального. Моноширинный: код
+         переписывают с экрана, и в пропорциональном шрифте это
+         труднее, чем кажется. */
+      .code {
+        display: block;
+        margin: 18px 0 10px;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: clamp(30px, 11vw, 46px);
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        color: #fbd506;
+        word-break: break-all;
+      }
+      .code--none {
+        font-size: clamp(18px, 5vw, 22px);
+        letter-spacing: 0;
+        color: #8b93a7;
+      }
+      .copy {
+        background: none;
+        border: 1px solid #2b2d35;
+        color: #cfd4e0;
+        border-radius: 8px;
+        padding: 9px 14px;
+        font: inherit;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .copy:hover { border-color: #4a4d59; }
+      .ways { display: grid; gap: 10px; margin-top: 18px; }
+    </style>
+  </head>
+
+  <body>
+    <header class="hdr">
+      <a class="logo" href="/">
+        <svg viewBox="0 0 512 512" aria-hidden="true">
+          <path d="M256 130 384 226v51L256 181 128 277v-51z" fill="#fbd506" />
+          <path d="M256 235 384 331v51L256 286 128 382v-51z" fill="#cc9900" />
+        </svg>
+        UPGRADER
+      </a>
+    </header>
+
+    <main class="doc">
+      <h1>Вас пригласили в Upgrader</h1>
+
+      <p class="lead">
+        Upgrader — симулятор апгрейда скинов CS2. Ставите предмет, выбираете
+        цель подороже, крутите колесо. Бесплатно, без вложений и без вывода:
+        баланс и предметы вымышленные.
+      </p>
+
+      <div class="ctabox">
+        <h2>Код приглашения</h2>
+        <code class="code" id="code">—</code>
+        <button class="copy" id="copy" hidden>Скопировать код</button>
+        <p id="hint">
+          Введите его в профиле после входа через Google — и получите бонус
+          на старте. Пригласивший получит свой.
+        </p>
+      </div>
+
+      <div class="ways">
+        <!--
+          Играть в браузере — первой кнопкой, и это не про удобство,
+          а про то, чтобы код не потерялся. По этой ссылке он уезжает
+          в адрес игры и применяется сам; в Google Play параметр
+          не доедет, и код придётся вводить руками.
+        -->
+        <a class="btn btn--y btn--lg" id="play" href="/play/">
+          Играть в браузере
+        </a>
+        <a class="btn btn--lg btn--play" id="store" href="https://play.google.com/store/apps/details?id=com.upgrader.upgrader&amp;referrer=utm_source%3Dinvite%26utm_medium%3Dweb%26utm_campaign%3Dreferral" data-cta="invite">
+          <svg class="btn__gp" viewBox="0 0 100 100" aria-hidden="true">
+            <rect width="100" height="100" rx="24" fill="#fff" />
+            <path d="M30 16 L45 50 L30 84 Z" fill="#4285f4" />
+            <path d="M30 16 L61 37.1 L45 50 Z" fill="#00a651" />
+            <path d="M61 37.1 L80 50 L61 62.9 L45 50 Z" fill="#ffc107" />
+            <path d="M30 84 L61 62.9 L45 50 Z" fill="#ea4335" />
+          </svg>
+          Скачать на Android
+        </a>
+      </div>
+
+      <h2>Как это работает</h2>
+
+      <ol>
+        <li>Откройте игру — в браузере или из Google Play.</li>
+        <li>Войдите через Google: код применяется к аккаунту, а без входа аккаунта нет.</li>
+        <li>В браузере бонус начислится сам. В приложении откройте профиль → «Пригласить друга» и введите код.</li>
+      </ol>
+
+      <p>
+        Код можно ввести только в первые дни после регистрации — он для тех,
+        кто в игре впервые, а не для обмена между теми, кто уже играет.
+      </p>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <nav class="foot__links">
+          <a href="/">Главная</a>
+          <a href="/privacy.html">Политика конфиденциальности</a>
+          <a href="/delete-account.html">Удаление аккаунта</a>
+          <a href="mailto:narodniy.team@gmail.com">narodniy.team@gmail.com</a>
+        </nav>
+        <p class="legal">
+          Upgrader — игровой симулятор. Баланс и предметы вымышленные. Реальные деньги
+          не принимаются, не выплачиваются и не выигрываются. Предметы нельзя купить
+          за деньги, продать, обменять или вывести за пределы приложения.
+        </p>
+        <p class="legal">
+          Приложение создано независимо и не связано с Valve Corporation, не одобрено
+          и не спонсируется ею. Counter-Strike, CS2, названия и изображения предметов —
+          товарные знаки и собственность Valve Corporation. Google Play и логотип
+          Google Play — товарные знаки Google LLC.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        'use strict';
+
+        // Код в параметре, а не в пути: сайт живёт на GitHub Pages,
+        // маршрутизации там нет, и «/i/КОД» пришлось бы ловить через
+        // 404.html — то есть отдавать четырёхсотую страницу тому,
+        // кого мы сами пригласили.
+        var raw = new URLSearchParams(location.search).get('c') || '';
+        var code = raw.toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+        var el = document.getElementById('code');
+        var copy = document.getElementById('copy');
+        var hint = document.getElementById('hint');
+        var play = document.getElementById('play');
+
+        if (!code) {
+          // Без кода страница не пустая: человек всё равно пришёл
+          // по приглашению, и отправить его играть полезнее, чем
+          // показать ошибку
+          el.textContent = 'Ссылка без кода';
+          el.className = 'code code--none';
+          hint.textContent =
+            'Похоже, ссылка скопирована не целиком. Попросите друга прислать её ещё раз — или просто начните играть.';
+          return;
+        }
+
+        el.textContent = code;
+        play.href = '/play/?ref=' + encodeURIComponent(code);
+        copy.hidden = false;
+
+        copy.onclick = function () {
+          navigator.clipboard.writeText(code).then(
+            function () { copy.textContent = 'Скопировано'; },
+            function () {
+              // Буфер обмена может быть недоступен — в этом случае
+              // выделяем код сам, чтобы скопировать вручную
+              var r = document.createRange();
+              r.selectNodeContents(el);
+              var s = getSelection();
+              s.removeAllRanges();
+              s.addRange(r);
+            }
+          );
+        };
+      })();
+    </script>
+    <script src="/assets/js/site.js" defer></script>
+  </body>
+</html>
