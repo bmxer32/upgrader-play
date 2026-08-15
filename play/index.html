@@ -14,8 +14,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Upgrader">
   <meta name="theme-color" content="#0B0E14">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+  <!-- Два фавикона, и это не перестраховка. PNG видят современные
+       браузеры, .ico спрашивают старые и Windows для ярлыка на рабочем
+       столе. Композиция у них своя, плотнее иконки приложения: во
+       вкладке шестнадцать точек, и поля, которые красят иконку на
+       телефоне, съедают на таком размере весь логотип. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
 
   <title>Upgrader — апгрейд скинов CS2 в браузере</title>
   <link rel="manifest" href="manifest.json">
