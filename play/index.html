@@ -1,46 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
+  <!-- Подменяется значением --base-href при сборке. Игра живёт
+       не в корне домена, а на /play/: корень занят лендингом. -->
   <base href="/play/">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="description" content="Симулятор апгрейда скинов CS2. Крути апгрейды, вызывай на дуэли, поднимайся в таблице лидеров — прямо в браузере, без установки.">
 
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="upgrader">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Upgrader">
+  <meta name="theme-color" content="#0B0E14">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>upgrader</title>
+  <title>Upgrader — апгрейд скинов CS2 в браузере</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* Экран загрузки.
+       Движок Flutter весит несколько мегабайт, и без этой заставки
+       человек с телефона первые секунды смотрит в белый лист и уходит.
+       Всё нарисовано разметкой и стилями — ни одного лишнего запроса,
+       и видно оно раньше, чем начнёт грузиться сам движок. */
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      background: #0B0E14;
+      overscroll-behavior: none;
+    }
+    #boot {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 22px;
+      background: radial-gradient(120% 90% at 50% 15%, #131A26 0%, #0B0E14 70%);
+      font: 600 13px/1.4 -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: #8A99AD; letter-spacing: 3px; text-transform: uppercase;
+      /* Убираем не мгновенно: резкая подмена картинки читается как рывок */
+      transition: opacity .35s ease;
+    }
+    #boot.done { opacity: 0; pointer-events: none; }
+    #boot svg { width: 96px; height: 96px; }
+
+    /* Шеврон дышит — признак, что процесс идёт, а не завис */
+    #boot svg .up { animation: rise 1.6s ease-in-out infinite; }
+    #boot svg .up.second { animation-delay: .18s; }
+    @keyframes rise {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50%      { transform: translateY(-14px); opacity: .55; }
+    }
+
+    #bar { width: 148px; height: 3px; border-radius: 2px; background: #273347; overflow: hidden; }
+    #bar i { display: block; width: 40%; height: 100%; border-radius: 2px;
+             background: linear-gradient(90deg, #cc9900, #ffe833);
+             animation: slide 1.25s ease-in-out infinite; }
+    @keyframes slide {
+      0%   { transform: translateX(-110%); }
+      100% { transform: translateX(360%); }
+    }
+
+    /* Тем, кто просил не анимировать, — не анимируем */
+    @media (prefers-reduced-motion: reduce) {
+      #boot svg .up, #bar i { animation: none; }
+      #bar i { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <div id="boot">
+    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path class="up" d="M 256 130 L 384 226 L 384 277 L 256 181 L 128 277 L 128 226 Z" fill="#ffe833"/>
+      <path class="up second" d="M 256 235 L 384 331 L 384 382 L 256 286 L 128 382 L 128 331 Z" fill="#cc9900"/>
+    </svg>
+    <div>Upgrader</div>
+    <div id="bar"><i></i></div>
+  </div>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
+  <script>
+    // Событие шлёт сам движок, когда отрисовал первый кадр. Снимать
+    // заставку по таймеру нельзя: на медленном телефоне она ушла бы
+    // раньше игры и оставила тот самый белый экран, ради которого
+    // всё и затевалось.
+    window.addEventListener('flutter-first-frame', function () {
+      var boot = document.getElementById('boot');
+      if (!boot) return;
+      boot.classList.add('done');
+      setTimeout(function () { boot.remove(); }, 400);
+    });
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
