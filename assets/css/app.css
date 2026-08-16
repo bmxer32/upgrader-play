@@ -140,6 +140,47 @@ h2 {
   padding-left: 17px;
 }
 
+/* Вторая кнопка — «Играть онлайн». Нарочно тише золотой: играть в браузере
+   можно сразу, но главный путь у страницы всё-таки установка, и две
+   одинаково яркие кнопки рядом заставляют выбирать вместо того, чтобы
+   нажать. */
+.btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid var(--border);
+}
+
+.btn--ghost:hover {
+  transform: translateY(-1px);
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.btn__wheel {
+  width: 21px;
+  height: 21px;
+  flex: none;
+}
+
+.btn--lg .btn__wheel {
+  width: 26px;
+  height: 26px;
+}
+
+/* Две кнопки в ряд, а на узком экране — одна под другой */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cta__note {
+  color: var(--gray-dim);
+  font-size: 13px;
+  max-width: 460px;
+}
+
 /* Плитка Google Play на кнопке: белая подложка, чтобы не сливалась с золотом */
 .btn__gp {
   width: 24px;
@@ -585,6 +626,24 @@ h2 {
   }
   .hdr .btn--y {
     display: none;
+  }
+}
+
+/* В шапке узкого экрана рядом с логотипом помещается только слово
+   «Играть»: на 320 точках логотип с полной кнопкой не сходится, и лишнее
+   уезжает первым — сначала слово «онлайн», потом значок и отступы.
+   Сама кнопка не прячется никогда: на телефоне это единственный способ
+   попасть в игру из шапки, жёлтая ниже 720 уже скрыта. */
+@media (max-width: 430px) {
+  .hdr {
+    gap: 10px;
+  }
+  .hdr .btn__long,
+  .hdr .btn__wheel {
+    display: none;
+  }
+  .hdr .btn--online {
+    padding: 9px 14px;
   }
 }
 

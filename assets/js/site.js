@@ -41,6 +41,16 @@
     });
   });
 
+  /* Кнопки «Играть онлайн». Адрес у них свой, внутренний, и подменять
+     его нечем — считаем только нажатия, чтобы было видно, чем игру
+     открывают чаще: установкой или браузером. */
+  document.querySelectorAll('[data-online]').forEach(function (el) {
+    var place = el.getAttribute('data-online');
+    el.addEventListener('click', function () {
+      track('play_online', { place: place });
+    });
+  });
+
   /* Мгновенная переадресация — включается флагом в <head> */
   if (window.AUTO_REDIRECT) {
     location.replace(playUrl('auto'));
