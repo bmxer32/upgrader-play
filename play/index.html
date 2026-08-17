@@ -24,14 +24,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
   <link rel="icon" href="favicon.ico" sizes="any"/>
 
-  <title>Upgrader — играть в апгрейдер онлайн бесплатно</title>
-
-  <!-- Сводит к одному адресу приглашения вида /play/?ref=КОД: страница
-       за ними одна и та же, а в индексе иначе оседают сотни копий.
-       Адрес абсолютный — с <base href="/play/"> относительный сложился
-       бы в /play/play/. -->
-  <link rel="canonical" href="https://upgrader-play.ru/play/">
-
+  <title>Upgrader — апгрейд скинов CS2 в браузере</title>
   <link rel="manifest" href="manifest.json">
 
   <!-- Очередь рекламы РСЯ.
@@ -110,28 +103,6 @@
     <div id="bar"><i></i></div>
   </div>
 
-  <!-- Единственный текст на этой странице, который виден поисковому
-       роботу. Игра рисуется одним холстом: ни заголовков, ни абзацев
-       внутри неё не существует, и ранжировать страницу не по чему.
-       Отсюда и отдельная страница /igrat/ — там текст, здесь игра.
-       Человек этот блок не увидит: без скриптов игра всё равно
-       не запустится, а с ними noscript не показывается. -->
-  <noscript>
-    <div style="max-width:640px;margin:0 auto;padding:32px 20px;color:#8A99AD;
-                font:400 15px/1.6 -apple-system,'Segoe UI',Roboto,sans-serif">
-      <h1 style="color:#E6ECF5;font-size:22px">Upgrader — апгрейдер скинов CS2 онлайн</h1>
-      <p>
-        Симулятор апгрейда скинов CS2 прямо в браузере: ставка, цель, колесо.
-        Более 4000 предметов, шанс до 75%, без депозита и Steam-аккаунта.
-        Для запуска игры нужен включённый JavaScript.
-      </p>
-      <p>
-        <a href="/igrat/" style="color:#ffe833">Как играть в апгрейдер онлайн бесплатно</a> ·
-        <a href="/" style="color:#ffe833">О приложении Upgrader</a>
-      </p>
-    </div>
-  </noscript>
-
   <script>
     // Выгоняем прежний служебный поток.
     //
@@ -177,7 +148,7 @@
     });
   </script>
 
-  <script>console.log("Upgrader, сборка 20260816-225134");</script>
-  <script src="flutter_bootstrap.js?v=20260816-225134" async></script>
+  <script>console.log("Upgrader, сборка 20260817-231212");</script>
+  <script src="flutter_bootstrap.js?v=20260817-231212" async></script>
 </body>
 </html>
