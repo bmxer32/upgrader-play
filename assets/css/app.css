@@ -505,6 +505,55 @@ h2 {
   margin-bottom: 0;
 }
 
+/* ── Скриншот внутри текста ────────────────────────────────── */
+
+/* Шире колонки текста, и намеренно: на экране игры одновременно
+   ставка, колесо и цель, а в 760 точках всё это ужимается до
+   нечитаемого. Приём стандартный — сдвинуть левый край на середину
+   родителя и вернуть назад на половину своей ширины; так блок встаёт
+   по центру, будучи шире того, что его держит. Ограничитель по vw
+   не даёт вылезти за окно на планшете, а на телефоне min() схлопывает
+   ширину до экрана сам, и правило превращается в обычную картинку. */
+.shotfig {
+  width: min(980px, calc(100vw - 2 * var(--gut)));
+  margin: 30px 0 30px 50%;
+  transform: translateX(-50%);
+}
+
+/* Портретные снимки с телефона. Во всю ширину такой кадр занимает
+   три экрана и выталкивает текст, поэтому ограничен по высоте
+   и прижат к центру. */
+.shotfig--phone {
+  width: min(300px, calc(100vw - 2 * var(--gut)));
+}
+
+.shotfig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--block);
+}
+
+.shotfig figcaption {
+  margin-top: 11px;
+  text-align: center;
+  color: var(--gray-dim);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Своё правило, а не общее для документа: подпись живёт и на главной,
+   где глобальное a { color: inherit } делает ссылку неотличимой
+   от текста. */
+.shotfig figcaption a {
+  color: var(--yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 .doc table {
   width: 100%;
   border-collapse: collapse;

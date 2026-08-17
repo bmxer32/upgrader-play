@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Апгрейдер — играть онлайн бесплатно, без скачивания</title>
+    <meta
+      name="description"
+      content="Апгрейдер онлайн: ставка, цель, колесо — прямо в браузере. Без скачивания, без депозита и Steam-аккаунта. 4000+ предметов CS2, шанс до 75%, играть бесплатно."
+    />
+    <link rel="canonical" href="https://upgrader-play.ru/igrat/" />
+    <meta name="theme-color" content="#17181c" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://upgrader-play.ru/igrat/" />
+    <meta property="og:site_name" content="Upgrader" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:title" content="Апгрейдер — играть онлайн бесплатно" />
+    <meta property="og:description" content="Симулятор апгрейда скинов CS2 в браузере. Устанавливать нечего, вносить нечего." />
+    <!-- Картинка для соцсетей — снимок браузерной версии, а не телефона:
+         страница про игру онлайн. PNG, а не webp: мессенджеры и старые
+         превьюшники webp понимают через раз. -->
+    <meta property="og:image" content="https://upgrader-play.ru/assets/img/shots/web-og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="900" />
+    <meta property="og:image:alt" content="Экран апгрейда в браузере: ставка, колесо с шансом и цель" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/assets/fonts/tektur-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/exo2-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/app.css" />
+
+    <!--
+      Страница отвечает за запросы про «играть»: онлайн, в браузере, без
+      скачивания. Сама игра лежит на /play/, но она нарисована на холсте —
+      робот видит там пустую разметку и ранжировать её не по чему.
+      Поэтому текст живёт здесь, а /play/ остаётся кнопкой отсюда.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Upgrader", "item": "https://upgrader-play.ru/" },
+              { "@type": "ListItem", "position": 2, "name": "Играть онлайн", "item": "https://upgrader-play.ru/igrat/" }
+            ]
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://upgrader-play.ru/igrat/#webapp",
+            "name": "Апгрейдер онлайн — Upgrader",
+            "alternateName": "Апгрейдер играть онлайн",
+            "url": "https://upgrader-play.ru/play/",
+            "description": "Симулятор апгрейда скинов CS2 в браузере: ставка, цель, колесо. Более 4000 предметов, максимальный шанс 75%, без депозита и Steam-аккаунта.",
+            "applicationCategory": "GameApplication",
+            "applicationSubCategory": "Casual",
+            "browserRequirements": "Требуется браузер с поддержкой WebGL",
+            "operatingSystem": "Любая",
+            "inLanguage": "ru-RU",
+            "author": { "@type": "Organization", "name": "Narodniy" },
+            "screenshot": [
+              "https://upgrader-play.ru/assets/img/shots/web-og.png",
+              "https://upgrader-play.ru/assets/img/shots/s2.png",
+              "https://upgrader-play.ru/assets/img/shots/s3.png"
+            ],
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RUB" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://upgrader-play.ru/igrat/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Можно ли играть в апгрейдер без скачивания?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Да. Онлайн-версия открывается в браузере на телефоне и на компьютере: устанавливать ничего не нужно, достаточно открыть страницу игры."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Нужна ли регистрация, чтобы начать играть?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Нет. Играть можно сразу в гостевом режиме. Вход через Google нужен только для того, чтобы прогресс сохранялся в облаке и был общим с приложением на Android."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Сколько стоит игра онлайн?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Нисколько. Депозита нет, внутриигровых покупок нет, платить не за что: баланс и предметы вымышленные."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Общий ли прогресс с приложением?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Да, если войти через Google в обеих версиях. Инвентарь, баланс и статистика привязаны к аккаунту, а не к устройству."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Можно ли вывести выигранные скины в Steam?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Нет. Предметы существуют только внутри игры: их нельзя купить за деньги, продать, обменять или вывести. Это симулятор механики, а не площадка обмена."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="hdr">
+      <a class="logo" href="/">
+        <svg viewBox="0 0 512 512" aria-hidden="true">
+          <path d="M256 130 384 226v51L256 181 128 277v-51z" fill="#fbd506" />
+          <path d="M256 235 384 331v51L256 286 128 382v-51z" fill="#cc9900" />
+        </svg>
+        UPGRADER
+      </a>
+      <span class="hdr__sp"></span>
+
+      <a class="btn btn--ghost btn--online" href="/play/" data-online="header">
+        <svg class="btn__wheel" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" />
+          <path d="M10 8.4 16.2 12 10 15.6z" fill="currentColor" />
+        </svg>
+        <span>Играть<span class="btn__long"> онлайн</span></span>
+      </a>
+      <a class="btn btn--y btn--play" href="https://play.google.com/store/apps/details?id=com.upgrader.upgrader&amp;referrer=utm_source%3Dlanding%26utm_medium%3Dweb%26utm_campaign%3Dlanding" data-cta="header">
+        <svg class="btn__gp" viewBox="0 0 100 100" aria-hidden="true">
+          <rect width="100" height="100" rx="24" fill="#fff" />
+          <path d="M30 16 L45 50 L30 84 Z" fill="#4285f4" />
+          <path d="M30 16 L61 37.1 L45 50 Z" fill="#00a651" />
+          <path d="M61 37.1 L80 50 L61 62.9 L45 50 Z" fill="#ffc107" />
+          <path d="M30 84 L61 62.9 L45 50 Z" fill="#ea4335" />
+        </svg>
+        Скачать
+      </a>
+    </header>
+
+    <main class="doc">
+      <p class="crumbs"><a href="/">Upgrader</a> → Играть онлайн</p>
+
+      <h1>Играть в апгрейдер онлайн бесплатно</h1>
+
+      <p class="lead">
+        Открыть вкладку и крутить. Без установки, без депозита, без Steam —
+        механика апгрейда настоящая, деньги в ней вымышленные.
+      </p>
+
+      <!-- Снимок раньше кнопки: по запросу «играть» приходят и те, кто
+           про игру ничего не знает. Один кадр объясняет механику быстрее
+           абзаца, а нажимать вслепую никто не любит. -->
+      <figure class="shotfig">
+        <img
+          src="/assets/img/shots/web-1440.webp"
+          srcset="/assets/img/shots/web-960.webp 960w, /assets/img/shots/web-1440.webp 1440w"
+          sizes="(max-width: 1044px) 100vw, 980px"
+          alt="Апгрейдер онлайн в браузере: слева ставка — перчатки Sport Gloves Superconductor, в центре колесо с шансом 33,39%, справа цель — нож Butterfly Knife Doppler Ruby"
+          width="1440"
+          height="1080"
+        />
+        <figcaption>
+          Апгрейд в браузере: ставка слева, шанс в центре, цель справа.
+          Ниже — инвентарь и магазин с фильтрами по цене и оружию.
+        </figcaption>
+      </figure>
+
+      <!-- Кнопка сразу под первым экраном: пришли по запросу «играть»,
+           значит хотят играть, а не читать. Текст ниже — для тех,
+           кто всё-таки читает, и для робота. -->
+      <div class="ctabox">
+        <h2>Открыть игру</h2>
+        <p>В браузере · 0 ₽ · без регистрации · телефон и компьютер</p>
+        <a class="btn btn--y btn--lg" href="/play/" data-online="doc_top">
+          Играть онлайн
+        </a>
+      </div>
+
+      <h2>Что нужно, чтобы начать</h2>
+
+      <p>
+        Браузер. Больше ничего: ни установки, ни регистрации, ни привязки
+        Steam-аккаунта, ни пополнения. Стартовый баланс и первые предметы
+        выдаются сразу, так что первая прокрутка случается на первой минуте.
+        Игра открывается и на телефоне, и на компьютере — на компьютере
+        управление мышью, карточки предметов компактнее, фильтры вынесены
+        в колонку.
+      </p>
+
+      <p>
+        Вход через Google не обязателен, но полезен: он привязывает прогресс
+        к аккаунту, а не к вкладке. После входа инвентарь, баланс и статистика
+        становятся общими с <a href="/skachat/">приложением на Android</a> —
+        можно крутить с компьютера, а продолжить с телефона.
+      </p>
+
+      <h2>Как проходит апгрейд</h2>
+
+      <ol>
+        <li>Выбираете ставку — один предмет из инвентаря или несколько сразу.</li>
+        <li>Выбираете цель дороже ставки: чем больше разрыв в цене, тем ниже шанс.</li>
+        <li>Смотрите процент в центре колеса. При желании докупаете шанс балансом — до предела в 75%.</li>
+        <li>Крутите. Выигрыш уходит в инвентарь, при неудаче остаётся утешительный приз.</li>
+      </ol>
+
+      <figure class="shotfig shotfig--phone">
+        <img
+          src="/assets/img/shots/wheel-820.webp"
+          srcset="/assets/img/shots/wheel-410.webp 410w, /assets/img/shots/wheel-820.webp 820w"
+          sizes="300px"
+          alt="Колесо апгрейда: в центре шанс 33,39% с подписью «низкий шанс», по краю шкала от 0 до 100%"
+          width="820"
+          height="740"
+        />
+        <figcaption>Процент виден до прокрутки, а не после.</figcaption>
+      </figure>
+
+      <p>
+        Шанс считается как отношение стоимости ставки к стоимости цели
+        в процентах. Никакой скрытой математики за этим нет, и подробный
+        разбор — на странице <a href="/shansy/">о шансах апгрейда</a>.
+      </p>
+
+      <h2>Что есть в онлайн-версии</h2>
+
+      <ul>
+        <li><strong>Апгрейд</strong> — ставка из одного или нескольких предметов, цель, колесо с шансом.</li>
+        <li><strong>Магазин</strong> — больше 4000 предметов CS2 с фильтрами по цене, категории и типу оружия.</li>
+        <li><strong>Инвентарь</strong> — всё выигранное лежит там и участвует в следующих ставках.</li>
+        <li><strong>Дуэли</strong> — вызов другого игрока на сравнение прокруток.</li>
+        <li><strong>Таблица лидеров</strong> и профиль со статистикой: винрейт, серия, средний шанс, лучший дроп.</li>
+        <li><strong>Кейсы</strong> за просмотр рекламного ролика, если играть стало не на что.</li>
+      </ul>
+
+      <h2>Браузер или приложение</h2>
+
+      <p>
+        Игра одна и та же, отличается только способ запуска. Если играете
+        с компьютера — выбора нет, приложение только для Android.
+        Если с телефона, решайте по тому, надолго ли вы здесь.
+      </p>
+
+      <table>
+        <tr><th></th><th>В браузере</th><th>Приложение</th></tr>
+        <tr><td>Установка</td><td>не нужна</td><td>около минуты</td></tr>
+        <tr><td>Платформа</td><td>любая</td><td>Android 6.0+</td></tr>
+        <tr><td>Запуск</td><td>дольше: движок грузится каждый раз</td><td>мгновенный</td></tr>
+        <tr><td>Прогресс</td><td colspan="2">общий, если войти через Google</td></tr>
+        <tr><td>Цена</td><td colspan="2">0 ₽, внутриигровых покупок нет</td></tr>
+      </table>
+
+      <h2>Почему это бесплатно</h2>
+
+      <p>
+        Потому что платить не за что. Настоящие апгрейдеры зарабатывают
+        на разнице между показанным и реальным шансом — каждая прокрутка
+        там оплачена чьим-то депозитом. Здесь депозита нет, потому что нет
+        и предмета сделки: баланс и предметы нарисованные, вносить в игру
+        нечего и выводить из неё нечего.
+      </p>
+
+      <div class="note">
+        <p>
+          Скажем прямо: <strong>выиграть настоящий скин здесь нельзя</strong>.
+          Предметы не выводятся в Steam, не продаются и не обмениваются.
+          Если вы искали площадку для реального обмена — это не она.
+          Чем симулятор отличается от таких площадок, разобрано на странице
+          <a href="/besplatno/">апгрейд скинов бесплатно</a>.
+        </p>
+      </div>
+
+      <h2>Частые вопросы</h2>
+
+      <h3>Можно ли играть без скачивания?</h3>
+      <p>
+        Да. Онлайн-версия открывается в браузере на телефоне и на компьютере:
+        устанавливать ничего не нужно, достаточно открыть страницу игры.
+      </p>
+
+      <h3>Нужна ли регистрация?</h3>
+      <p>
+        Нет. Играть можно сразу в гостевом режиме. Вход через Google нужен
+        только для того, чтобы прогресс сохранялся в облаке и был общим
+        с приложением на Android.
+      </p>
+
+      <h3>Сколько стоит игра онлайн?</h3>
+      <p>
+        Нисколько. Депозита нет, внутриигровых покупок нет, платить не за что:
+        баланс и предметы вымышленные.
+      </p>
+
+      <h3>Общий ли прогресс с приложением?</h3>
+      <p>
+        Да, если войти через Google в обеих версиях. Инвентарь, баланс
+        и статистика привязаны к аккаунту, а не к устройству.
+      </p>
+
+      <h3>Можно ли вывести выигранные скины в Steam?</h3>
+      <p>
+        Нет. Предметы существуют только внутри игры: их нельзя купить
+        за деньги, продать, обменять или вывести. Это симулятор механики,
+        а не площадка обмена.
+      </p>
+
+      <div class="ctabox">
+        <h2>Колесо ждёт</h2>
+        <p>Ничего устанавливать не нужно — открывается прямо сейчас.</p>
+        <a class="btn btn--y btn--lg" href="/play/" data-online="doc_bottom">
+          Играть онлайн
+        </a>
+
+        <!-- Вторая кнопка тише первой: страница про игру в браузере,
+             и установка здесь — не главный путь, а запасной для тех,
+             кто уже решил остаться. На узком экране жёлтая кнопка шапки
+             скрыта, так что без этой ссылки с телефона в магазин
+             со страницы было бы не попасть. -->
+        <a class="btn btn--ghost btn--lg btn--play" href="https://play.google.com/store/apps/details?id=com.upgrader.upgrader&amp;referrer=utm_source%3Dlanding%26utm_medium%3Dweb%26utm_campaign%3Dlanding" data-cta="doc_bottom">
+          <svg class="btn__gp" viewBox="0 0 100 100" aria-hidden="true">
+            <rect width="100" height="100" rx="24" fill="#fff" />
+            <path d="M30 16 L45 50 L30 84 Z" fill="#4285f4" />
+            <path d="M30 16 L61 37.1 L45 50 Z" fill="#00a651" />
+            <path d="M61 37.1 L80 50 L61 62.9 L45 50 Z" fill="#ffc107" />
+            <path d="M30 84 L61 62.9 L45 50 Z" fill="#ea4335" />
+          </svg>
+          Скачать на Android
+        </a>
+
+        <p class="hint" data-only="desktop">
+          Приложение — только для Android. С компьютера играйте в браузере.
+        </p>
+      </div>
+
+      <div class="related">
+        <p class="foot__t">Читать дальше</p>
+        <ul>
+          <li><a href="/apgreider/">Апгрейдер: что это такое и как работает</a></li>
+          <li><a href="/besplatno/">Апгрейд скинов бесплатно, без вложений</a></li>
+          <li><a href="/shansy/">Шанс апгрейда: как считается и почему потолок 75%</a></li>
+          <li><a href="/skachat/">Upgrader скачать на Android</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <nav class="foot__links">
+          <a href="/">Главная</a>
+          <a href="/privacy.html">Политика конфиденциальности</a>
+          <a href="/delete-account.html">Удаление аккаунта</a>
+          <a href="mailto:narodniy.team@gmail.com">narodniy.team@gmail.com</a>
+        </nav>
+        <p class="legal">
+          Upgrader — игровой симулятор. Баланс и предметы вымышленные. Реальные деньги
+          не принимаются, не выплачиваются и не выигрываются. Предметы нельзя купить
+          за деньги, продать, обменять или вывести за пределы приложения.
+        </p>
+        <p class="legal">
+          Приложение создано независимо и не связано с Valve Corporation, не одобрено
+          и не спонсируется ею. Counter-Strike, CS2, названия и изображения предметов —
+          товарные знаки и собственность Valve Corporation. Google Play и логотип
+          Google Play — товарные знаки Google LLC.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Липкая кнопка на этой странице ведёт в игру, а не в магазин:
+         человек пришёл по запросу «играть», а не «скачать». Поэтому
+         data-online, а не data-cta — иначе скрипт подменил бы адрес
+         ссылкой на Google Play. -->
+    <div class="dock">
+      <a class="btn btn--y btn--wide" href="/play/" data-online="dock">
+        Играть онлайн бесплатно
+      </a>
+    </div>
+
+    <script src="/assets/js/site.js" defer></script>
+  </body>
+</html>
