@@ -27,9 +27,51 @@
   box-sizing: border-box;
 }
 
+/* Цвет страницы переехал на html, и не для красоты.
+   Фоновый чертёж ниже — это body::before с z-index -1, то есть слой
+   между фоном страницы и её содержимым. Оставь заливку на body — и
+   рисоваться она будет поверх этого слоя, спрятав его целиком. */
+html {
+  background: var(--black);
+}
+
+/* Чертёж поверху страницы, гаснущий книзу.
+   Тот же приём, что в самой игре: сверху текстура, дальше плавный
+   переход в ровный цвет. Маской по картинке, а не заливкой поверх, —
+   прозрачное просто открывает фон html, и согласовывать два цвета
+   между собой не приходится.
+
+   Полоса кончается вместе с первым экраном и дальше не мешает: ниже
+   идут карточки со своим фоном, и текстура под ними была бы не видна,
+   а считаться продолжала бы.
+
+   position: absolute намеренно без position: relative на body.
+   Отсчёт идёт от начала документа, что здесь и нужно, а вот relative
+   на body переназначил бы точку отсчёта для .hero::before — золотого
+   свечения, которое висит на -240px и уехало бы вместе с ней. */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: min(760px, 78vh);
+  z-index: -1;
+  pointer-events: none;
+  background: url('../img/bg-blueprint.webp') center top / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 20%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 20%, transparent 100%);
+}
+
+/* На телефоне полоса ниже: широкая картинка при узком экране режется
+   по бокам, и чем выше полоса, тем сильнее срез. */
+@media (max-width: 700px) {
+  body::before {
+    height: min(420px, 52vh);
+  }
+}
+
 body {
   margin: 0;
-  background: var(--black);
+  background: transparent;
   color: #fff;
   font: 400 16px/1.55 var(--body);
   -webkit-font-smoothing: antialiased;
