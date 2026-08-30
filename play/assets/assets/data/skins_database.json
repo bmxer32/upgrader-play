@@ -44091,14 +44091,44 @@
     "marketHashName": "Karambit | Case Hardened"
   },
   {
-    "id": "meme-galil-grey-smoke",
-    "name": "Galil AR | Grey Smoke (серый дым)",
-    "weapon": "Galil AR",
+    "id": "meme-scar20-short-ochre",
+    "name": "SCAR-20 | Short Ochre (сухая охра)",
+    "weapon": "SCAR-20",
     "rarity": "Mythical",
     "rarityColor": "#00e5c4",
-    "price": 1000000000.0,
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2n5rp8SNJ0OGha6xSIvycHGWvw_lJt-BlRiWyhyIrujqNjsH9dimTZgAmCMMhRuEL5xCxkNa0Pum3sgzX3osWyH362ixL7HlqtehUT-N7rUWzKN8P",
-    "marketHashName": "Galil AR | Grey Smoke"
+    "price": 250000000.0,
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLinZfyr3Jk_P2RZbF-NPGBCliDwu9k4rFWQyC0nQlp4znSyo39dHifa1ciD8EjF-QCshmwxtKxY7_qsQze2olFyS-shyocvDErvbjS8vcY3w",
+    "marketHashName": "SCAR-20 | Short Ochre"
+  },
+  {
+    "id": "meme-negev-army-sheen",
+    "name": "Negev | Army Sheen (армейский отлив)",
+    "weapon": "Negev",
+    "rarity": "Mythical",
+    "rarityColor": "#00e5c4",
+    "price": 350000000.0,
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_m5Hl6x1a4s2veql0H-ObB2mV_uJ_t-l9AXrikxgk6z-EyYytcHLGbAclC8EhE-QJthjplN2yZO3gtVbcjIsXzSzgznQeWdeDBGI",
+    "marketHashName": "Negev | Army Sheen"
+  },
+  {
+    "id": "meme-mp9-multi-terrain",
+    "name": "MP9 | Multi-Terrain (под любую местность)",
+    "weapon": "MP9",
+    "rarity": "Mythical",
+    "rarityColor": "#00e5c4",
+    "price": 500000000.0,
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f9Ttk4ua-V6hkJ_iHQGTDlLsktrNrG3q1zB515GSEm9ahInyRawMgWcN5F-MC4RS5w4HjNuL8p1uJJfiZdX4",
+    "marketHashName": "MP9 | Multi-Terrain"
+  },
+  {
+    "id": "meme-m249-sleet",
+    "name": "M249 | Sleet (мокрый снег)",
+    "weapon": "M249",
+    "rarity": "Mythical",
+    "rarityColor": "#00e5c4",
+    "price": 750000000.0,
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8zMK5wipC6s2jOvA0H_OSHFiH0-9mj7JWQyC0nQlp6zzQwtiudHvCO1MlDJByQuIC4UO7lta0Zuy0swPZiNhDxSv33C0f6zErvbjSvv-GUg",
+    "marketHashName": "M249 | Sleet"
   },
   {
     "id": "frame-steel",
@@ -44110,6 +44140,16 @@
     "imageUrl": "frame:steel",
     "marketHashName": "Стальной обод",
     "isCosmetic": true
+  },
+  {
+    "id": "meme-galil-grey-smoke",
+    "name": "Galil AR | Grey Smoke (серый дым)",
+    "weapon": "Galil AR",
+    "rarity": "Mythical",
+    "rarityColor": "#00e5c4",
+    "price": 1000000000.0,
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2n5rp8SNJ0OGha6xSIvycHGWvw_lJt-BlRiWyhyIrujqNjsH9dimTZgAmCMMhRuEL5xCxkNa0Pum3sgzX3osWyH362ixL7HlqtehUT-N7rUWzKN8P",
+    "marketHashName": "Galil AR | Grey Smoke"
   },
   {
     "id": "meme-mac10-storm-camo",
@@ -44183,16 +44223,6 @@
     "marketHashName": "Desert Eagle | Mudder"
   },
   {
-    "id": "meme-navaja-safari-mesh",
-    "name": "★ Navaja Knife | Safari Mesh (пыльник)",
-    "weapon": "Navaja Knife",
-    "rarity": "Mythical",
-    "rarityColor": "#00e5c4",
-    "price": 10000000000.0,
-    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1c9uK9cZtnIfOYBWmZx-tJo_FWQiygnSIzsjO6lob-KT-JZgIlDJFxQbUIsxnsk9zjNrmz7wbfg4IQziT6hi9P5n5j674CWPIlqLqX0V-GxNuRmA",
-    "marketHashName": "★ Navaja Knife | Safari Mesh"
-  },
-  {
     "id": "frame-halo",
     "name": "Бирюзовый ореол",
     "weapon": "Украшение",
@@ -44202,6 +44232,16 @@
     "imageUrl": "frame:halo",
     "marketHashName": "Бирюзовый ореол",
     "isCosmetic": true
+  },
+  {
+    "id": "meme-navaja-safari-mesh",
+    "name": "★ Navaja Knife | Safari Mesh (пыльник)",
+    "weapon": "Navaja Knife",
+    "rarity": "Mythical",
+    "rarityColor": "#00e5c4",
+    "price": 10000000000.0,
+    "imageUrl": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1c9uK9cZtnIfOYBWmZx-tJo_FWQiygnSIzsjO6lob-KT-JZgIlDJFxQbUIsxnsk9zjNrmz7wbfg4IQziT6hi9P5n5j674CWPIlqLqX0V-GxNuRmA",
+    "marketHashName": "★ Navaja Knife | Safari Mesh"
   },
   {
     "id": "frame-crown",
