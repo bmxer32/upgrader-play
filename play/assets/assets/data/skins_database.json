@@ -44253,5 +44253,60 @@
     "imageUrl": "frame:crown",
     "marketHashName": "Корона",
     "isCosmetic": true
+  },
+  {
+    "id": "bg-onyx",
+    "name": "Оникс",
+    "weapon": "Фон карточки",
+    "rarity": "Cosmetic",
+    "rarityColor": "#6e6656",
+    "price": 120000000.00,
+    "imageUrl": "bg:onyx",
+    "marketHashName": "Оникс",
+    "isCosmetic": true
+  },
+  {
+    "id": "bg-ivory",
+    "name": "Белое золото",
+    "weapon": "Фон карточки",
+    "rarity": "Cosmetic",
+    "rarityColor": "#c9c6be",
+    "price": 155000000.00,
+    "imageUrl": "bg:ivory",
+    "marketHashName": "Белое золото",
+    "isCosmetic": true
+  },
+  {
+    "id": "bg-chicken",
+    "name": "Куриный замес",
+    "weapon": "Фон карточки",
+    "rarity": "Cosmetic",
+    "rarityColor": "#9a6b3a",
+    "price": 200000000.00,
+    "imageUrl": "bg:chicken",
+    "marketHashName": "Куриный замес",
+    "isCosmetic": true
+  },
+  {
+    "id": "bg-kitty",
+    "name": "Китти",
+    "weapon": "Фон карточки",
+    "rarity": "Cosmetic",
+    "rarityColor": "#d14a8e",
+    "price": 250000000000.00,
+    "imageUrl": "bg:kitty",
+    "marketHashName": "Китти",
+    "isCosmetic": true
+  },
+  {
+    "id": "bg-elite",
+    "name": "Глобалка",
+    "weapon": "Фон карточки",
+    "rarity": "Cosmetic",
+    "rarityColor": "#d4a537",
+    "price": 500000000000.00,
+    "imageUrl": "bg:elite",
+    "marketHashName": "Глобалка",
+    "isCosmetic": true
   }
 ]
